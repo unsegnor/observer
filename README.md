@@ -1,5 +1,6 @@
 # observer
 Data observer
 
-yarn install
-yarn test
+# How to start
+- yarn install
+- yarn test
