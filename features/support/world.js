@@ -1,20 +1,22 @@
 const { setWorldConstructor } = require('cucumber')
-const App = require('../../src/app.js')
-const ObjectManager = require('../../src/InMemoryObjectAdapter.js')
+const System = require('../../src/System.js')
+const DateManager = require('../../adapters/DateManager/FakeDateManager')
+const ObservationsRepository = require('../../adapters/ObservationsRepository/InMemoryObservationsRepository')
 
 class CustomWorld {
-  constructor() {
-    this.objectManager = ObjectManager()
+  constructor () {
     this.context = {}
     this.init()
   }
 
-  restartTheSystem(){
+  restartTheSystem () {
     this.init()
   }
 
-  init(){
-    this.app = App({objectManager: this.objectManager})
+  init () {
+    const observationsRepository = ObservationsRepository()
+    this.dateManager = DateManager()
+    this.system = System({observationsRepository, dateManager: this.dateManager})
   }
 }
 

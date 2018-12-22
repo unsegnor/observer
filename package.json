@@ -4,12 +4,17 @@
   "description": "Data observer",
   "main": "index.js",
   "author": "Víctor Calatayud Asensio",
-  "license": "MIT",
+  "license": "GPL-v3.0",
   "scripts": {
-    "test": "cucumber-js"
+    "test": "cucumber-js",
+    "focus": "cucumber-js --tags @focus",
+    "adapters": "mocha adapters/**/*.spec.js"
   },
   "dependencies": {
     "chai": "^4.1.2",
-    "cucumber": "^4.0.0"
+    "cucumber": "^5.0.3"
+  },
+  "devDependencies": {
+    "mocha": "^5.2.0"
   }
 }
